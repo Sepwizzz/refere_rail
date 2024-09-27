@@ -36,11 +36,11 @@ ALLOWED_HOSTS = []
 # ]
 # CORS_ALLOWED_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8100",
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8100",
 
-    # Agrega aquí los dominios que necesitas permitir
-]
+#     # Agrega aquí los dominios que necesitas permitir
+# ]
 
 
 INSTALLED_APPS = [
