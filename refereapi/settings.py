@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-k#+wcxd*n+4!n%_^#veg9*86zyajbjgn6cvuvt&ga^v1**f7_t
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['localhost','refererail-production.up.railway.app']
+BASE_DIR = Path(__file__).resolve().parent.parent
+ALLOWED_HOSTS = ['refererail-production.up.railway.app', '127.0.0.1', 'localhost']
 #lo mismo pero con la ip del pc ALLOWED_HOSTS = ["192.168.101.76"]
 # ALLOWED_HOSTS = ["192.168.101.76"]
 #mas esto al ejecutar python manage.py runserver 0.0.0.0:8000
