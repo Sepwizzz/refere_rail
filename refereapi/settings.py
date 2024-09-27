@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-k#+wcxd*n+4!n%_^#veg9*86zyajbjgn6cvuvt&ga^v1**f7_t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','refererail-production.up.railway.app']
 #lo mismo pero con la ip del pc ALLOWED_HOSTS = ["192.168.101.76"]
 # ALLOWED_HOSTS = ["192.168.101.76"]
 #mas esto al ejecutar python manage.py runserver 0.0.0.0:8000
@@ -36,11 +42,11 @@ ALLOWED_HOSTS = []
 # ]
 # CORS_ALLOWED_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8100",
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8100",
 
-    # Agrega aquí los dominios que necesitas permitir
-]
+#     # Agrega aquí los dominios que necesitas permitir
+# ]
 
 
 INSTALLED_APPS = [
@@ -97,14 +103,7 @@ WSGI_APPLICATION = 'refereapi.wsgi.application'
 #     }
 # }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
-        'NAME': 'referedjango',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 # Password validation
