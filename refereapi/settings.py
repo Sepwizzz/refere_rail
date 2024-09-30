@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ['refererail-production.up.railway.app', '127.0.0.1', 'localhost
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:8100",
 # ]
-# CORS_ALLOWED_ORIGINS = True
+CORS_ALLOWED_ORIGINS = True
 
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:8100",
