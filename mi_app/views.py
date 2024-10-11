@@ -6,6 +6,24 @@ class ArbitrosViewSet(viewsets.ModelViewSet):
     queryset = Arbitros.objects.all()
     serializer_class = ArbitrosSerializer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        tipo_arbitro = self.request.query_params.get('tipoArbitro', None)
+        disciplina = self.request.query_params.get('disciplina', None)
+        ciudad = self.request.query_params.get('ciudad', None)
+        localidad = self.request.query_params.get('localidad', None)
+
+        if tipo_arbitro is not None:
+            queryset = queryset.filter(tipoArbitro=tipo_arbitro)
+        if disciplina is not None:
+            queryset = queryset.filter(disciplina=disciplina)
+        if ciudad is not None:
+            queryset = queryset.filter(ciudad=ciudad)
+        if localidad is not None:
+            queryset = queryset.filter(localidad=localidad)
+
+        return queryset
+        
 class OrganizadorViewSet(viewsets.ModelViewSet):
     queryset = Organizador.objects.all()
     serializer_class = OrganizadorSerializer
